@@ -1,3 +1,3 @@
 import 'whatwg-fetch';
 
-import App from './components/app.vue';
+import App from './components/application.vue';

@@ -3,8 +3,8 @@ export function loadSeries(data) {
 };
 
 export function findCharacters(data) {
- data.id = new Date();
- return {type: 'CHARACTERS@FIND_ALL_COMPLETE', data: data};
+  data.id = new Date();
+  return {type: 'CHARACTERS@FIND_ALL_COMPLETE', data: data};
 };
 
 export function findComics(id) {
@@ -18,4 +18,19 @@ export function loadModal(id) {
 
 export function clearComics(id) {
  return {type: 'MODAL@CLEAR', data: id};
+};
+
+export function seriesInfoSearch(name) {
+ return (dispatch) => {
+   fetch('http://marvel-is-broke.herokuapp.com/series?limit=1&titleStartsWith=TITLE&apikey=APIKEY')
+   .then(r = r.json())
+   .then(data => {
+     dispatch({
+       type: 'SERIES_INFO@LOAD_COMPLETE',
+       data: {
+         description,
+       }
+     })
+   })
+ };
 };

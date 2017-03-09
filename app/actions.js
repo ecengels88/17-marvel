@@ -24,9 +24,9 @@ export function seriesInfoSearch(seriesInfo) {
    .then(r = r.json())
    .then((data) => {
      const series = data.data.results[0];
-     next(loadSeries(series));
-     next(findCharacters(series.id));
-     next(findComics(series.id));
+     dispatch(loadSeries(series));
+     dispatch(findCharacters(series.id));
+     dispatch(findComics(series.id));
    });
   };
 }
@@ -37,7 +37,7 @@ export function charactersFindForId(id) {
     .then(r = r.json())
     .then((data) => {
       const characters = data.data.results;
-      next(findCharacters(characters));
+      dispatch(findCharacters(characters));
     });
   };
 }
@@ -48,7 +48,7 @@ export function comicsFindForId(id) {
     .then(r = r.json())
     .then((data) => {
       const comics = data.data.results;
-      next(findComics(comics));
+      dispatch(findComics(comics));
     });
   };
 }

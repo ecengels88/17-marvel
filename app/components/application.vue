@@ -18,11 +18,7 @@
           <h2 class="creators__heading">Creators</h2>
           <ul class="creators__list">
             <li class="list-item">Tom Brennan</li>
-            <li class="list-item">Mike Del Mundo</li>
-            <li class="list-item">Clayton Henry</li>
-            <li class="list-item">Barry Kitson</li>
-            <li class="list-item">Jelena Kevic Djurdjevic</li>
-            <li class="list-item">Paul Tobin</li>
+
           </ul>
         </div>
       </section>
@@ -34,47 +30,11 @@
               <img src="http://placehold.it/125x125" alt="" class="grid-item__pic">
               <p class="grid-item__title">Mini Aussie!</p>
             </div>
-
-            <div class="grid-item">
-              <img src="http://placehold.it/125x125" alt="" class="grid-item__pic">
-              <p class="grid-item__title">Mini Aussie!</p>
-            </div>
-
-            <div class="grid-item">
-              <img src="http://placehold.it/125x125" alt="" class="grid-item__pic">
-              <p class="grid-item__title">Mini Aussie!</p>
-            </div>
-
-            <div class="grid-item">
-              <img src="http://placehold.it/125x125" alt="" class="grid-item__pic">
-              <p class="grid-item__title">Mini Aussie!</p>
-            </div>
           </div>
         </div>
         <div class="menu">
           <h1 class="menu__title">Comics</h1>
           <div class="menu__grid">
-            <div class="grid-item">
-              <img src="http://placehold.it/125x125" alt="" class="grid-item__pic">
-              <p class="grid-item__title">#1</p>
-              <p class="grid-item__title">Another Aussie!</p>
-              <button class="btn">Read More</button>
-            </div>
-
-            <div class="grid-item">
-              <img src="http://placehold.it/125x125" alt="" class="grid-item__pic">
-              <p class="grid-item__title">#1</p>
-              <p class="grid-item__title">Another Aussie!</p>
-              <button class="btn">Read More</button>
-            </div>
-
-            <div class="grid-item">
-              <img src="http://placehold.it/125x125" alt="" class="grid-item__pic">
-              <p class="grid-item__title">#1</p>
-              <p class="grid-item__title">Another Aussie!</p>
-              <button class="btn">Read More</button>
-            </div>
-
             <div class="grid-item">
               <img src="http://placehold.it/125x125" alt="" class="grid-item__pic">
               <p class="grid-item__title">#1</p>
@@ -93,8 +53,12 @@ import store from '../store';
 import { seriesInfoSearch } from '../actions';
 
 export default {
+
   data() {
     return {
+      seriesInfo: this.$select(seriesInfo),
+      characters: this.$select(characterData),
+      comics: this.$select(comicData),
     };
   },
 

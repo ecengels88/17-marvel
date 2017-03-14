@@ -6,18 +6,18 @@
       </div>
     </header>
     <div class="main container">
-      <section class="main__sidebar">
+      <section class="main__sidebar" v-if="seriesInfo">
         <div class="main-img">
-          <img src="http://placehold.it/400x400" alt="" class="marvel-pic">
+          <img :src="`${seriesInfo.thumbnail.path}.${seriesInfo.thumbnail.extension}`" alt="" class="marvel-pic">
         </div>
         <div class="image-subhead">
-          <h1 class="main-title">Mini Aussies!</h1>
-          <p class="main-dates">2010-2011</p>
+          <h1 class="main-title">{{seriesInfo.title}}</h1>
+          <p class="main-dates">{{`${seriesInfo.startYear} - ${seriesInfo.endYear}`}}</p>
         </div>
         <div class="creators">
           <h2 class="creators__heading">Creators</h2>
           <ul class="creators__list">
-            <li class="list-item">Tom Brennan</li>
+            <li class="list-item" v-for="{ name } in seriesInfo.creators.items">{{name}}</li>
 
           </ul>
         </div>
@@ -56,10 +56,14 @@ export default {
 
   data() {
     return {
-      seriesInfo: this.$select(seriesInfo),
-      characters: this.$select(characterData),
-      comics: this.$select(comicData),
+      seriesInfo: this.$select('seriesInfo'),
+      characters: this.$select('characterData'),
+      comics: this.$select('comicData'),
     };
+  },
+
+  created() {
+    store.dispatch(seriesInfoSearch('thor'))
   },
 
   methods: {

@@ -26,9 +26,8 @@
         <div class="menu">
           <h1 class="menu__title">Characters</h1>
           <div class="menu__grid">
-            <div class="grid-item">
-              <img src="http://placehold.it/125x125" alt="" class="grid-item__pic">
-              <p class="grid-item__title">Mini Aussie!</p>
+            <div class="grid-item" v-for="character in characterData">
+              <character-item :character="character"></character-item>
             </div>
           </div>
         </div>
@@ -51,19 +50,24 @@
 <script>
 import store from '../store';
 import { seriesInfoSearch } from '../actions';
+import characterItem from './character-item.vue';
 
 export default {
+
+  components: {
+    characterItem,
+  },
 
   data() {
     return {
       seriesInfo: this.$select('seriesInfo'),
-      characters: this.$select('characterData'),
-      comics: this.$select('comicData'),
+      characterData: this.$select('characterData'),
+      comicData: this.$select('comicData'),
     };
   },
 
   created() {
-    store.dispatch(seriesInfoSearch('thor'))
+    store.dispatch(seriesInfoSearch('hulk'))
   },
 
   methods: {

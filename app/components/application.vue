@@ -35,27 +35,31 @@
           <h1 class="menu__title">Comics</h1>
           <div class="menu__grid">
             <div class="grid-item" v-for="comic in comicData">
-              <comic-item :comic="comic"></comic-item>
+              <comic-item :comic="comic" @open="setModal"></comic-item>
             </div>
           </div>
         </div>
       </section>
     </div>
-
+        <div class="modal" v-if="modal">
+          <modal :modal="modal" @close="clearModal"></modal>
+        </div>
   </div>
 </template>
 
 <script>
 import store from '../store';
-import { seriesInfoSearch } from '../actions';
+import { seriesInfoSearch, setModal, clearModal } from '../actions';
 import characterItem from './character-item.vue';
 import comicItem from './comic-item.vue';
+import modal from './modal.vue';
 
 export default {
 
   components: {
     characterItem,
     comicItem,
+    modal,
   },
 
   data() {
@@ -63,6 +67,7 @@ export default {
       seriesInfo: this.$select('seriesInfo'),
       characterData: this.$select('characterData'),
       comicData: this.$select('comicData'),
+      modal: this.$select('modal'),
     };
   },
 
@@ -71,7 +76,14 @@ export default {
   },
 
   methods: {
+    setModal(comic) {
+      console.log(comic);
+      store.dispatch(setModal(comic));
+    },
 
+    clearModal() {
+      store.dispatch(clearModal());
+    }
   },
 };
 </script>

@@ -1,7 +1,9 @@
 <template lang="html">
-  <div class="">
-    <img :src="`${character.thumbnail.path}.${character.thumbnail.extension}`" alt="" class="grid-item__pic">
-    <p class="grid-item__title">{{character.name}}</p>
+  <div class="object-item">
+    <div class="square-pic">
+      <img :src="`${character.thumbnail.path}.${character.thumbnail.extension}`" alt="" class="grid-item__pic">
+    </div>
+    <p class="object-item__title">{{character.name}}</p>
   </div>
 </template>
 

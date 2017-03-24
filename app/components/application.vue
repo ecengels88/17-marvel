@@ -34,16 +34,14 @@
         <div class="menu">
           <h1 class="menu__title">Comics</h1>
           <div class="menu__grid">
-            <div class="grid-item">
-              <img src="http://placehold.it/125x125" alt="" class="grid-item__pic">
-              <p class="grid-item__title">#1</p>
-              <p class="grid-item__title">Another Aussie!</p>
-              <button class="btn">Read More</button>
+            <div class="grid-item" v-for="comic in comicData">
+              <comic-item :comic="comic"></comic-item>
             </div>
           </div>
         </div>
       </section>
     </div>
+
   </div>
 </template>
 
@@ -51,11 +49,13 @@
 import store from '../store';
 import { seriesInfoSearch } from '../actions';
 import characterItem from './character-item.vue';
+import comicItem from './comic-item.vue';
 
 export default {
 
   components: {
     characterItem,
+    comicItem,
   },
 
   data() {
@@ -67,7 +67,7 @@ export default {
   },
 
   created() {
-    store.dispatch(seriesInfoSearch('hulk'))
+    store.dispatch(seriesInfoSearch('hulk'));
   },
 
   methods: {

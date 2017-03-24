@@ -1,0 +1,52 @@
+.main {
+  display: flex;
+
+  &__sidebar {
+    flex-basis: calc(20%);
+    margin: 1rem;
+  }
+
+  .main-img {
+    position: relative;
+    width: 100%;
+  }
+
+  .main-img:before {
+    display: block;
+    padding-top: 100%;
+    content: '';
+  }
+
+  .marvel-pic {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 0.4rem;
+  }
+
+  .main-title {
+    margin: 0;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+
+  &__comic-menu {
+    flex-basis: calc(75%);
+    margin: 1rem;
+  }
+}
+
+.main-dates {
+  margin: 0;
+}
+
+.creators {
+
+  &__heading {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid $c-navbar;
+    font-size: 1.2rem;
+  }
+}
